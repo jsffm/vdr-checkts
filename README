@@ -1,0 +1,37 @@
+vdr-checkts
+===========
+
+Copyright 2011 Tobias Grimm <vdr@e-tobi.net>
+
+vdr-checkts is released under the terms of the BSD License - see COPYRIGHT
+
+
+What's this about?
+------------------
+
+vdr-checkts parses VDR recordings (only TS-recordings / vdr 1.7.x) and
+records any discontinuities in the transport stream by checking the
+continuity counter.
+
+Ideally there will be no discontinuities and vdr-checkts returns with
+exit code 0. If continuity errors were found it returns with exit code 1
+and prints the number of errors.
+
+
+How to use?
+-----------
+
+Usage: vdr-checkts [OPTIONS] RECORDING_DIR
+
+  -m errors, --max-errors=ERROR Stop scanning if error count reaches ERROR
+  -h,        --help             print this help and exit
+
+
+What else?
+----------
+
+I've also include a patch for VDR 1.7.21 which will make VDR check for
+continuity errors while recording.
+
+The number of continuity errors is written to the info file in the field
+tagged with 'R'.
